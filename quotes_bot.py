@@ -7,10 +7,12 @@ import random
 
 # Enable logging
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-                    level=logging.INFO)
+                    level=logging.INFO,
+                    filename='quotebot.log',
+                    filemode='a')
 
 logger = logging.getLogger(__name__)
-
+logging.getLogger().addHandler(logging.StreamHandler())
 
 def read_telegram_api_key():
     with open("telegram-api-key.txt", "r") as api_key_file:
